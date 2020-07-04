@@ -1,7 +1,7 @@
 /*
 18. Listar los clientes que han comprado los veiculos honda Accord
 */
-
+USE Concesionario;
 
 Select * From Encargos
 

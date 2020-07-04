@@ -1,5 +1,5 @@
 /*Incrementar el precio de los coches en un 2%*/
-
+USE Concesionario;
 SELECT * FROM Coches;
 
 UPDATE Coches

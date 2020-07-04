@@ -2,7 +2,7 @@
 16. Obtener un listado de clientes atendidos 
 por el vendedor Jan.
 */
-
+USE Concesionario;
 SELECT cl.Id AS 'Clave Cliente',cl.Nombre AS 'Listado de Clientes de Jan',CONCAT(ve.Nombres,' ',ve.Apellidos) AS 'Vendedor' FROM Clientes cl
 INNER JOIN Vendedores ve ON cl.Id_Vendedores = ve.Id
 WHERE ve.Nombres = 'Jan'; 

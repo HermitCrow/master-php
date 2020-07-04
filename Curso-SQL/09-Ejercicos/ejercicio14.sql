@@ -2,7 +2,7 @@
 14. Visualizar las unidades totales vendidas de cada coche a cada cliente
 Mostrando el nombre del producto, numero de cliente y la suma de unidades
 */
-
+USE Concesionario;
 Select * From Coches
 
 Select c.Nombre,CONCAT(o.Marca, ' ',o.Modelo) as 'Vehiculo',Sum(e.Cantidad) as 'Cantidad'

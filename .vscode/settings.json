@@ -8,7 +8,8 @@
             "password": "123456",
             "port": 1433,
             "server": "PGRREDNA150249",
-            "username": "sa"
+            "username": "sa",
+            "driver": "MSSQL"
         },
         {
             "connectionTimeout": 30,
@@ -18,7 +19,8 @@
             "password": "123456",
             "port": 3306,
             "server": "127.0.0.1",
-            "username": "admin"
+            "username": "admin",
+            "driver": "MySQL"
         },
         {
             "connectionTimeout": 30,
@@ -28,7 +30,8 @@
             "password": "123456",
             "port": 1433,
             "server": "127.0.0.1",
-            "username": "sa"
+            "username": "sa",
+            "driver": "MSSQL"
         },
         {
             "connectionTimeout": 30,
@@ -38,6 +41,22 @@
             "password": "123456",
             "port": 1433,
             "server": "127.0.0.1",
+            "username": "sa",
+            "driver": "MSSQL"
+        },
+        {
+            "database": "Concesionario",
+            "driver": "MSSQL",
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "encrypt": true,
+                "useUTC": true
+            },
+            "name": "NewSql",
+            "password": "123456",
+            "port": 1433,
+            "previewLimit": 50,
+            "server": "LAPTOP-J533FSR0",
             "username": "sa"
         }
     ]
