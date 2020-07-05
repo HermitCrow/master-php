@@ -3,4 +3,7 @@
 USE Concesionario;
 
 SELECT * FROM Vendedores where Id in
-    (SELECT vendedoresId FROM Clientes);
+    (SELECT Id_vendedores FROM Clientes Group by Id_vendedores HAVING COUNT(Id)>=2);
+
+INSERT INTO Clientes
+VALUES(2,'Supermercado Bravo','Distrito Nacional',234567854,GETDATE());

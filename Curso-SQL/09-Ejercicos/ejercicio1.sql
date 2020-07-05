@@ -149,16 +149,16 @@ Select * From Vendedores;
 /*Clientes*/
 
 INSERT INTO Clientes
-Values(2,'Fiscalia','Distritor Nacional',150000,GETDATE());
+Values(2,'Fiscalia','Distrito Nacional',150000,GETDATE());
 
 INSERT INTO Clientes
-Values(6,'La sirena','Distritor Nacional',1000000,GETDATE());
+Values(6,'La sirena','Distrito Nacional',1000000,GETDATE());
 
 INSERT INTO Clientes
 Values(4,'Pala Pizza','Puerto Plata',250000,GETDATE());
 
 INSERT INTO Clientes
-Values(1,'Precidencia','Distritor Nacional',4000000,GETDATE());
+Values(1,'Precidencia','Distrito Nacional',4000000,GETDATE());
 
 SELECT * FROM Clientes;
 

@@ -3,7 +3,6 @@
         {
             "connectionTimeout": 30,
             "database": "Blog_Master",
-            "dialect": "MSSQL",
             "name": "SQLSERVER",
             "password": "123456",
             "port": 1433,
@@ -14,7 +13,6 @@
         {
             "connectionTimeout": 30,
             "database": "blog",
-            "dialect": "MySQL",
             "name": "MYSQLCONNECT",
             "password": "123456",
             "port": 3306,
@@ -25,7 +23,6 @@
         {
             "connectionTimeout": 30,
             "database": "Blog_Master",
-            "dialect": "MSSQL",
             "name": "sqlconwanp",
             "password": "123456",
             "port": 1433,
@@ -35,8 +32,7 @@
         },
         {
             "connectionTimeout": 30,
-            "database": "Concesionario",
-            "dialect": "MSSQL",
+            "database": "Concesionario",            
             "name": "ConcesionarioDB",
             "password": "123456",
             "port": 1433,
