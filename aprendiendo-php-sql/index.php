@@ -31,18 +31,22 @@ $resultado=sqlsrv_query($Connection,$sql);
 
 if($resultado === false)
     die(Print_r(sqlsrv_errors(), TRUE));
-$productCount = 0; 
-//echo "<table>" ;
-//while($row = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC))  
-//{  
-  //  echo $row['Title'].",". $row['Descriptions'];  
-    //echo("<br/>");  
-    //$productCount++;  
-//} 
 
-//sqlsrv_free_stmt($resultado); 
-//echo "</table>" ;  
+while($notas = sqlsrv_fetch_array($resultado))  
+{  
+    //var_dump($notas);
+    echo "<h2>".$notas['Title']."</h2>";
+    echo $notas['Descriptions']."</br>"; 
 
-var_dump($resultado); 
-
+}  
+/*
+$sql = "INSERT INTO Notas VALUES('Comprar del mes','huvo y platano.','Yellow')";
+$Insert = sqlsrv_query($Connection,$sql);
+if($Insert){
+    echo "Insert Success.";
+}else{
+    echo "Insert Error.";
+    die(Print_r(sqlsrv_errors(),TRUE));
+}
+*/
 ?>
