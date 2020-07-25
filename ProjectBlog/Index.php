@@ -5,39 +5,25 @@
 <!-- Caja principal -->
 <div id="main">
     <h1>Latest entries</h1>
+    <?php 
+        $Inputs = GetInputs($DataContext);
+        if(!empty($Inputs)) :
+            while($Input = sqlsrv_fetch_array($Inputs, SQLSRV_FETCH_ASSOC)) :                
+                $DateTime=$Input['InputDate'];                
+    ?>
     <article class="article">
         <a href="">
-            <h2>Title articles</h2>
+            <h2><?=$Input['Title'];?></h2>
+            <span class="date">
+                <?=$Input['Category'].' | '.$DateTime->format('d-m-Y g:i a');?></span>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus omnis
-                necessitatibus laboriosam doloribus ratione dolorum voluptatem, nobis numquam,
-                optio tempore et quibusdam assumenda odio! Numquam, placeat asperiores! Ullam,
-                at soluta?
+                <?= substr($Input['Descriptions'],0,180)."...";?>
             </p>
         </a>
     </article>
-    <article class="article">
-        <a href="">
-            <h2>Title articles</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus omnis
-                necessitatibus laboriosam doloribus ratione dolorum voluptatem, nobis numquam,
-                optio tempore et quibusdam assumenda odio! Numquam, placeat asperiores! Ullam,
-                at soluta?
-            </p>
-        </a>
-    </article>
-    <article class="article">
-        <a href="">
-            <h2>Title articles</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus omnis
-                necessitatibus laboriosam doloribus ratione dolorum voluptatem, nobis numquam,
-                optio tempore et quibusdam assumenda odio! Numquam, placeat asperiores! Ullam,
-                at soluta?
-            </p>
-        </a>
-    </article>
+    <?php 
+            endwhile;
+        endif; ?>
     <div id="ver-todas">
         <a href="">Ver todas la entradas</a>
     </div>

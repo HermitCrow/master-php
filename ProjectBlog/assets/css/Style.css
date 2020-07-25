@@ -32,8 +32,8 @@ body {
   border-radius: 2px;
 }
 
-.alert alert-error {
-  background: red;
+.alert-error {
+  background-color: red;
 }
 
 /*Cabecera*/
@@ -157,7 +157,8 @@ input[type="password"] {
 }
 
 input[type="submit"],
-input[type="bottom"] {
+input[type="bottom"],
+.bottom {
   margin-top: 5px;
   margin-bottom: 5px;
   display: block;
@@ -167,6 +168,28 @@ input[type="bottom"] {
   border: 1px solid #156785;
   cursor: pointer;
   padding: 7px;
+  text-align: center;
+}
+
+.bottom {
+  float: left;
+  width: 103px;
+}
+
+.bottom-green {
+  float: right;
+  background: #26c526;
+  border-color: #228a05;
+}
+.bottom-orange {
+  float: left;
+  background: orange;
+  border-color: #d87708;
+}
+.bottom-red {
+  float: right;
+  background: red;
+  border-color: red;
 }
 
 /*Parte central*/
@@ -201,6 +224,12 @@ input[type="bottom"] {
   letter-spacing: 1px;
   font-family: "fajala", helvetica;
   margin-top: 25px;
+}
+
+.date {
+  color: #4e4e4e;
+  margin-top: 5px;
+  font-size: 15px;
 }
 
 #main p {

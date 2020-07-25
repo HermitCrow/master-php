@@ -12,4 +12,6 @@ sqlsrv_query($DataContext,"SET NAME 'utf-8'");
 
 //Seccion start.
 
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}

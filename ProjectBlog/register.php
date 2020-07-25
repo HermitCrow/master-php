@@ -16,8 +16,8 @@ if(isset($_POST['submit'])){
 
     //Recoger los valores del formulario de registro.
     $firstname = isset($_POST['firstname']) ? sqlsrv_ecape($_POST['firstname']) : false;
-    $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
+    $lastname = isset($_POST['lastname']) ? sqlsrv_ecape($_POST['lastname']) : false;
+    $email = isset($_POST['email']) ? trim($_POST['email']) : false;
     $password = isset($_POST['password']) ? $_POST['password'] : false;
     
     //Array errores
@@ -73,8 +73,10 @@ if(isset($_POST['submit'])){
 
         //Cifrar la password
         $password_save = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
-
+        
          //Insertar usuario
+         $firstname = strtoupper($firstname);
+         $lastname = strtoupper($lastname);
         $sql = "INSERT INTO Users VALUES('$firstname','$lastname','$email','$password_save',SYSDATETIME())";
         $save = sqlsrv_query($DataContext,$sql);   
 

@@ -35,5 +35,33 @@ CREATE TABLE Inputs
 );
 
 USE Blog;
-SELECT *
-FROM Users;
+INSERT INTO Category
+VALUES('Pc');
+
+INSERT INTO Category
+VALUES('Rol');
+
+INSERT INTO Category
+VALUES('Aventura');
+
+INSERT INTO Category
+VALUES('Deporte');
+
+INSERT INTO Category
+VALUES('Plataformas');
+
+INSERT INTO Inputs
+VALUES(9, 3, 'Guia Zelda', 'Holas Aqui les traigo la mejor gia para zelda mini.', SYSDATETIME());
+
+INSERT INTO Inputs
+VALUES(5, 1, 'Super Pc Gamer', 'Hola Aqui le traigo el nuevo boar msi compatible con el procesador i9.', SYSDATETIME());
+
+INSERT INTO Inputs
+VALUES(7, 2, 'Ark Evolve', 'Nuevo DLC sale me noviembre activos chicos.', SYSDATETIME());
+
+
+SELECT TOP 4
+    i.*, c.*
+FROM Inputs i
+    INNER JOIN Category c ON c.Id = i.Id_Category
+ORDER BY i.Id DESC

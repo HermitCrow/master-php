@@ -1,4 +1,7 @@
-<?php require_once 'connection.php';?>
+<?php 
+    require_once 'connection.php';
+    require_once 'Include/helpers.php'; 
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,18 +27,14 @@
                 <li>
                     <a href="Index.php">Home</a>
                 </li>
+                <?php 
+                    $Categories = GetCategory($DataContext);
+                    while($Category = sqlsrv_fetch_array($Categories, SQLSRV_FETCH_ASSOC)) : 
+                 ?>
                 <li>
-                    <a href="Index.php">Category 1</a>
+                    <a href="category.php?Id=<?=$Category['Id'];?>"><?= $Category['Names'];?></a>
                 </li>
-                <li>
-                    <a href="Index.php">Category 2</a>
-                </li>
-                <li>
-                    <a href="Index.php">Category 3</a>
-                </li>
-                <li>
-                    <a href="Index.php">Category 4</a>
-                </li>
+                <?php endwhile;?>
                 <li>
                     <a href="Index.php">About</a>
                 </li>

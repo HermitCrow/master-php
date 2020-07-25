@@ -1,11 +1,25 @@
-<?php require_once 'Include/helpers.php'; ?>
-
 <!-- Barra lateral -->
 
 <aside id="sidebar">
+    <?php if(isset($_SESSION['User'])) : ?>
+    <div id="user_login" class="blockaside">
+        <h3>Welcome, <?= $_SESSION['User']['FirstName'].' '.$_SESSION['User']['LastName'];?></h3>
+        <!-- Close session-->
+        <a href="cerrar.php" class="bottom bottom-green">Create Entradas</a>
+        <a href="create_category.php" class="bottom">Create Category</a>
+        <a href="cerrar.php" class="bottom bottom-orange">My Data</a>
+        <a href="cerrar.php" class="bottom bottom-red">Close Session</a>
+    </div>
+    <?php endif; ?>
+    <?php if(!isset($_SESSION['User'])) :?>
     <div id="login" class="blockaside">
 
         <h3>Identify yourself</h3>
+        <?php if(isset($_SESSION['Error_login'])) : ?>
+        <div class="alert alert-error">
+            <h3><?=$_SESSION['Error_login'];?></h3>
+        </div>
+        <?php endif; ?>
 
         <form method="post" action="login.php">
 
@@ -56,4 +70,5 @@
         </form>
         <?php BorraErrors(); ?>
     </div>
+    <?php endif;?>
 </aside>
