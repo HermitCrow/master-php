@@ -25,6 +25,16 @@ function BorraErrors(){
         $_SESSION['Error_login'] = null;
         unset($_SESSION['Error_login']);
     }
+
+    if(isset($_SESSION['Error_Category_Name'])){
+        $_SESSION['Error_Category_Name'] = null;
+        unset($_SESSION['Error_Category_Name']);
+    }
+
+    if(isset($_SESSION['Complete_Category'])){
+        $_SESSION['Complete_Category'] = null;
+        unset($_SESSION['Complete_Category']);  
+    }
 }
 
 function GetCategory($DataContext){

@@ -1,6 +1,6 @@
 <?php
-function sqlsrv_ecape($data){
-    if(is_numeric){
+function sqlsrv_escape($data){
+    if(is_numeric($data)){
         return $data;
     }
     $databuscar = array('"',"'");
@@ -15,8 +15,8 @@ if(isset($_POST['submit'])){
     //session_start();    
 
     //Recoger los valores del formulario de registro.
-    $firstname = isset($_POST['firstname']) ? sqlsrv_ecape($_POST['firstname']) : false;
-    $lastname = isset($_POST['lastname']) ? sqlsrv_ecape($_POST['lastname']) : false;
+    $firstname = isset($_POST['firstname']) ? sqlsrv_escape($_POST['firstname']) : false;
+    $lastname = isset($_POST['lastname']) ? sqlsrv_escape($_POST['lastname']) : false;
     $email = isset($_POST['email']) ? trim($_POST['email']) : false;
     $password = isset($_POST['password']) ? $_POST['password'] : false;
     

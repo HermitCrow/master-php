@@ -7,11 +7,12 @@ if(isset($_GET)){
     $Id = false;
         while($Category = sqlsrv_fetch_array($Categories, SQLSRV_FETCH_ASSOC)){ 
         if($_GET['Id'] == $Category['Id']){
-            $Id =$Category['Id'];
+            $Id = $Category['Id'];
+            $Category_Type = $Category['Names'];
         }
     } 
     if($Id){
-        echo $Id;
+        echo $Category_Type;
     }else{
         header('Location: index.php');
     }
