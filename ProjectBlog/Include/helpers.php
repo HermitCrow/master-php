@@ -1,4 +1,8 @@
 <?php 
+if(!isset($_SESSION)){
+    session_start();
+}
+
 function MostrarErrors($errors, $campo){
     
     $alert = '';
@@ -50,8 +54,8 @@ function GetCategory($DataContext){
     return $Category;
 }
 
-function GetInputs($DataContext){
-    $sql = "SELECT TOP 4 i.*, c.Names AS 'Category',CONCAT(u.FirstName,' ',u.LastName) AS 'NameFull' FROM Inputs i 
+function GetInputs($DataContext,$Top = 4){
+    $sql = "SELECT TOP $Top i.*, c.Id AS 'CategoryId', c.Names AS 'Category',CONCAT(u.FirstName,' ',u.LastName) AS 'NameFull' FROM Inputs i 
     INNER JOIN Category c ON c.Id = i.Id_Category
     INNER JOIN Users u ON u.Id = i.Id_Users
     ORDER BY i.Id DESC";
@@ -66,3 +70,16 @@ function GetInputs($DataContext){
 
     return $Input;
 }
+
+function sqlsrv_escape($data){
+   
+    $databuscar = array('"',"'","/");
+    $datarenpla = array('""',"''","//");
+    $datamo = str_replace($databuscar,$datarenpla,$data);
+     if(strcasecmp($data,$datamo) !== 0){         
+         $data = false;         
+     }   else{
+         return $data;
+     } 
+    return $data;
+}//End Function

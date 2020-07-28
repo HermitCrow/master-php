@@ -26,7 +26,7 @@ CREATE TABLE Inputs
     Id INT IDENTITY(1,1) NOT NULL,
     Id_Users INT NOT NULL,
     Id_Category INT NOT NULL,
-    Title VARCHAR(15) NOT NULL,
+    Title VARCHAR(150) NOT NULL,
     Descriptions VARCHAR(Max),
     InputDate DATETIME,
     CONSTRAINT pk_Inputs PRIMARY KEY(Id),
@@ -59,9 +59,16 @@ VALUES(5, 1, 'Super Pc Gamer', 'Hola Aqui le traigo el nuevo boar msi compatible
 INSERT INTO Inputs
 VALUES(7, 2, 'Ark Evolve', 'Nuevo DLC sale me noviembre activos chicos.', SYSDATETIME());
 
+INSERT INTO Inputs
+VALUES(1, 3, 'La mejor aventura', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fringilla maximus dolor sed volutpat. Quisque tincidunt ut erat a ornare. Ut vulputate nunc ac ipsum cursus lacinia vel ut quam.
+
+', '2020-07-28 09:06:00')
 
 SELECT TOP 4
     i.*, c.*
 FROM Inputs i
     INNER JOIN Category c ON c.Id = i.Id_Category
 ORDER BY i.Id DESC
+
+SELECT *
+FROM Users

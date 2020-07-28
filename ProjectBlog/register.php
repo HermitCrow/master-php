@@ -78,7 +78,8 @@ if(isset($_POST['submit'])){
          $firstname = strtoupper($firstname);
          $lastname = strtoupper($lastname);
         $sql = "INSERT INTO Users VALUES('$firstname','$lastname','$email','$password_save',SYSDATETIME())";
-        $save = sqlsrv_query($DataContext,$sql);   
+        $save = sqlsrv_query($DataContext,$sql);  
+        
 
         if($save){
             $_SESSION['complete'] = "The register is complete.";

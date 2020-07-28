@@ -5,7 +5,7 @@
     <div id="user_login" class="blockaside">
         <h3>Welcome, <?= $_SESSION['User']['FirstName'].' '.$_SESSION['User']['LastName'];?></h3>
         <!-- Close session-->
-        <a href="cerrar.php" class="bottom bottom-green">Create Entradas</a>
+        <a href="create_entrada.php" class="bottom bottom-green">Create Entradas</a>
         <a href="create_category.php" class="bottom">Create Category</a>
         <a href="cerrar.php" class="bottom bottom-orange">My Data</a>
         <a href="cerrar.php" class="bottom bottom-red">Close Session</a>
@@ -68,7 +68,7 @@
             <input type="submit" name="submit" value="Register">
 
         </form>
-        <?php BorraErrors(); ?>
+
     </div>
     <?php endif;?>
 </aside>

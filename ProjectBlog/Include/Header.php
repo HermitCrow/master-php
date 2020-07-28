@@ -12,6 +12,7 @@
     <title>Blog de Videojuegos</title>
 </head>
 
+
 <body>
     <!-- Head -->
     <header id="header">

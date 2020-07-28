@@ -26,7 +26,6 @@
 
         <input type="submit" value="Create" />
     </form>
-    <?php BorraErrors(); ?>
 </div>
 <!--Fin principal-->
 

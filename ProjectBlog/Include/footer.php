@@ -1,3 +1,4 @@
+<?php BorraErrors(); ?>
 <div class="Clearfix"></div>
 </div>
 <!-- Pie de pagina -->
