@@ -1,14 +1,23 @@
 <!-- Barra lateral -->
 
 <aside id="sidebar">
+
+    <div id="Seeker" class="blockaside">
+        <h3>Seeker</h3>
+
+        <form method="post" action="Seeker.php">
+            <input type="text" name="Seeker" />
+            <input type="submit" value="Seeker">
+        </form>
+    </div>
     <?php if(isset($_SESSION['User'])) : ?>
     <div id="user_login" class="blockaside">
         <h3>Welcome, <?= $_SESSION['User']['FirstName'].' '.$_SESSION['User']['LastName'];?></h3>
         <!-- Close session-->
-        <a href="create_entrada.php" class="bottom bottom-green">Create Entradas</a>
-        <a href="create_category.php" class="bottom">Create Category</a>
-        <a href="cerrar.php" class="bottom bottom-orange">My Data</a>
-        <a href="cerrar.php" class="bottom bottom-red">Close Session</a>
+        <a href="create_entrada.php" class="bottom bottom-green" style="float:right;">Create Entradas</a>
+        <a href="create_category.php" class="bottom" style="float:left;">Create Category</a>
+        <a href="mis_datos.php" class="bottom bottom-orange" style="float:left;">My Data</a>
+        <a href="cerrar.php" class="bottom bottom-red" style="float:right;">Close Session</a>
     </div>
     <?php endif; ?>
     <?php if(!isset($_SESSION['User'])) :?>

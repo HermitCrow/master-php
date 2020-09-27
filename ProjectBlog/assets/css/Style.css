@@ -163,7 +163,7 @@ input[type="bottom"],
   margin-bottom: 5px;
   display: block;
   border-radius: 2px;
-  color: white;
+  color: white !important;
   background: #007ee5;
   border: 1px solid #156785;
   cursor: pointer;
@@ -172,22 +172,18 @@ input[type="bottom"],
 }
 
 .bottom {
-  float: left;
   width: 103px;
 }
 
 .bottom-green {
-  float: right;
   background: #26c526;
   border-color: #228a05;
 }
 .bottom-orange {
-  float: left;
   background: orange;
   border-color: #d87708;
 }
 .bottom-red {
-  float: right;
   background: red;
   border-color: red;
 }

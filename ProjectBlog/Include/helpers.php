@@ -16,28 +16,28 @@ function MostrarErrors($errors, $campo){
 function BorraErrors(){
       if(isset($_SESSION['errors'])){
         $_SESSION['errors'] = null;    
-        unset($_SESSION['errors']);
+       // unset($_SESSION['errors']);
       }
     
 
     if(isset($_SESSION['complete'])){
         $_SESSION['complete'] = null;
-        unset($_SESSION['complete']);  
+        //unset($_SESSION['complete']);  
     }
 
     if(isset($_SESSION['Error_login'])){
         $_SESSION['Error_login'] = null;
-        unset($_SESSION['Error_login']);
+        //unset($_SESSION['Error_login']);
     }
 
     if(isset($_SESSION['Error_Category_Name'])){
         $_SESSION['Error_Category_Name'] = null;
-        unset($_SESSION['Error_Category_Name']);
+        //unset($_SESSION['Error_Category_Name']);
     }
 
     if(isset($_SESSION['Complete_Category'])){
         $_SESSION['Complete_Category'] = null;
-        unset($_SESSION['Complete_Category']);  
+        //unset($_SESSION['Complete_Category']);  
     }
 }
 
@@ -54,23 +54,6 @@ function GetCategory($DataContext){
     return $Category;
 }
 
-function GetInputs($DataContext,$Top = 4){
-    $sql = "SELECT TOP $Top i.*, c.Id AS 'CategoryId', c.Names AS 'Category',CONCAT(u.FirstName,' ',u.LastName) AS 'NameFull' FROM Inputs i 
-    INNER JOIN Category c ON c.Id = i.Id_Category
-    INNER JOIN Users u ON u.Id = i.Id_Users
-    ORDER BY i.Id DESC";
-    $params = array();
-    $options = array("Scrollable" => SQLSRV_CURSOR_CLIENT_BUFFERED);
-    $GetInput = sqlsrv_query($DataContext,$sql,$params,$options);    
-    $Input = array();
-
-    if($GetInput && sqlsrv_num_rows($GetInput) >= 1){
-        $Input = $GetInput;
-    }
-
-    return $Input;
-}
-
 function sqlsrv_escape($data){
    
     $databuscar = array('"',"'","/");
@@ -83,3 +66,31 @@ function sqlsrv_escape($data){
      } 
     return $data;
 }//End Function
+
+function GetAllInputs($DataContext,$Top=null,$Seeker=null){
+    if($Top){
+        $TopString="TOP 4";
+    }else{
+        $TopString=" ";
+    }
+    if($Seeker){
+        $SeekerString = "WHERE i.Title LIKE '%$Seeker%'";
+    }else{
+        $SeekerString =" ";
+    }
+    $sql = "SELECT $TopString i.*, c.Id AS 'CategoryId', c.Names AS 'Category',CONCAT(u.FirstName,' ',u.LastName) AS 'NameFull' FROM Inputs i 
+    INNER JOIN Category c ON c.Id = i.Id_Category
+    INNER JOIN Users u ON u.Id = i.Id_Users
+    $SeekerString 
+    ORDER BY i.InputDate DESC";
+    $params = array();
+    $options = array("Scrollable" => SQLSRV_CURSOR_CLIENT_BUFFERED);
+    $GetInput = sqlsrv_query($DataContext,$sql,$params,$options);    
+    $Input = array();
+
+    if($GetInput && sqlsrv_num_rows($GetInput) >= 1){
+        $Input = $GetInput;
+    }
+
+    return $Input;
+}

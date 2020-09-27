@@ -9,16 +9,19 @@ require_once 'Include/helpers.php';
 <?php require_once 'Include/aside.php'; ?>
 <!-- Caja principal -->
 <div id="main">
-    <h1>Latest entries</h1>
+    <h1>Search: <?=$_POST['Seeker'];?> </h1>
     <?php 
+    if(!isset($_POST['Seeker'])){
+        header("Location: index.php");
+    }
     if(isset($_GET)):
-        $Inputs = GetAllInputs($DataContext,false,null); 
+        $Inputs = GetAllInputs($DataContext,false,$_POST['Seeker']); 
         $exist = false;    
         
         if(!empty($Inputs)) :
             while($Input = sqlsrv_fetch_array($Inputs, SQLSRV_FETCH_ASSOC)) :                
                 $DateTime=$Input['InputDate']; 
-                if($_GET['Id'] == $Input['CategoryId']):
+                if(!empty($Input)):
                     $exist = true;                    
     ?>
     <article class="article">

@@ -1,12 +1,12 @@
 <?php
-//Connection to the database.
+//Check if the post exists or is empty.
+if(isset($_POST) && !empty($_POST) == " "){   
+
+    //Connection to the database.
 require_once 'Include/connection.php';
 
 //Function to escape charater
 require_once 'Include/helpers.php';
-
-//Check if the post exists or is empty.
-if(isset($_POST) && !empty($_POST) == " "){   
 
     //Calls the function passes a value to verify it.
    

@@ -9,7 +9,7 @@ require_once 'Include/helpers.php';
 <?php require_once 'Include/aside.php'; ?>
 <!-- Caja principal -->
 <div id="main">
-    <h1>Latest entries</h1>
+
     <?php 
     if(isset($_GET)):
         $Inputs = GetAllInputs($DataContext,false,null); 
@@ -18,18 +18,26 @@ require_once 'Include/helpers.php';
         if(!empty($Inputs)) :
             while($Input = sqlsrv_fetch_array($Inputs, SQLSRV_FETCH_ASSOC)) :                
                 $DateTime=$Input['InputDate']; 
-                if($_GET['Id'] == $Input['CategoryId']):
+                if($_GET['Id'] == $Input['Id']):
                     $exist = true;                    
     ?>
+    <h1><?=$Input['Title'];?></h1>
     <article class="article">
-        <a href="Input.php?Id=<?=$Input['Id']?>">
-            <h2><?=$Input['Title'];?></h2>
-            <span class="date">
-                <?=$Input['Category'].' | '.$DateTime->format('d-m-Y g:i a');?></span>
-            <p>
-                <?=substr($Input['Descriptions'],0,180)."...";?>
-            </p>
-        </a>
+
+
+        <span class="date">
+            <a href="category.php?Id=<?=$Input['Id_Category'];?>">
+                <?=$Input['Category']?></a>
+            <?=' | '.$DateTime->format('d-m-Y g:i a');?><?=' | By '.$Input['NameFull'];?></span>
+        <p>
+            <?=$Input['Descriptions'];?>
+        </p></br>
+        <?php if(isset($_SESSION['User']) && $_SESSION['User']['Id'] == $Input['Id_Users'] ): ?>
+        <a href="edit_entries.php?Id_Input=<?=$Input['Id']?>" class="bottom bottom-orange">Edit entries</a>
+        <a href="delete_entries.php?Id_Input=<?=$Input['Id']?>" class="bottom bottom-red float-right">Delete entries</a>
+
+        <?php endif; ?>
+
     </article>
     <?php 
                 endif;

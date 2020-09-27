@@ -2,10 +2,11 @@
 
 if(isset($_POST)){
 
-    require_once 'Include/helpers.php';
+require_once 'Include/helpers.php';
 require_once 'Include/connection.php';
 
     $IdUser = isset($_POST['Id_Users']) ? (int)$_POST['Id_Users'] : false;
+    $IdInput = isset($_POST['Id_Input']) ? (int)$_POST['Id_Input'] : false;
     $IdCategory = isset($_POST['Category']) ? (int)$_POST['Category'] : false;
     $Title = isset($_POST['Title']) ? sqlsrv_escape($_POST['Title']) : false;
     $Descriptions = isset($_POST['Descriptions']) ? $_POST['Descriptions'] : false;    
@@ -29,27 +30,23 @@ require_once 'Include/connection.php';
         $errors['Descriptions'] ="The Descriptions is empty.";
     }
 
-    if(count($errors) == 0){
-        
-        
+    if(count($errors) == 0){ 
 
-        
-        $sql="INSERT INTO Inputs
-        VALUES($IdUser, $IdCategory, '$Title', '$Descriptions', SYSDATETIME())";        
+        $sql="UPDATE Inputs
+        SET Title ='$Title',Descriptions ='$Descriptions',Id_Category =$IdCategory,InputDate =SYSDATETIME()
+        WHERE Id_Users = $IdUser AND Id = $IdInput";
+               
         $query = sqlsrv_query($DataContext,$sql);
-       //var_dump($sql);
-       //var_dump($DateCom);
-        //die();
         
         if($query){
             header('Location:index.php');
         }else{
-            header('Location: create_entrada.php'); 
+            header("Location: edit_entries.php?Id_Input=$IdInput"); 
         }
         
     }else{
 
         $_SESSION['errors'] = $errors;              
-        header('Location: create_entrada.php'); 
+        header("Location: edit_entries.php?Id_Input=$IdInput"); 
     }
 }

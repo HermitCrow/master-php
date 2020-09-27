@@ -4,9 +4,9 @@
 <?php require_once 'Include/aside.php'; ?>
 <!-- Caja principal -->
 <div id="main">
-    <h1>Latest entries</h1>
+    <h1>All entries</h1>
     <?php 
-        $Inputs = GetAllInputs($DataContext,true,null);
+        $Inputs = GetAllInputs($DataContext,false,null);
         if(!empty($Inputs)) :
             while($Input = sqlsrv_fetch_array($Inputs, SQLSRV_FETCH_ASSOC)) :                
                 $DateTime=$Input['InputDate'];                
@@ -24,9 +24,7 @@
     <?php 
             endwhile;
         endif; ?>
-    <div id="ver-todas">
-        <a href="entrada.php">Ver todas la entradas</a>
-    </div>
+
 </div>
 <!--Fin principal-->
 
