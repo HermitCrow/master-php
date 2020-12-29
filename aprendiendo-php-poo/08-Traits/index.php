@@ -15,4 +15,5 @@ class Persona{
 class VideoJuego{
     public $nombre;
     public $anio;
+    public $price;
 }
