@@ -4,15 +4,15 @@ require_once 'config/DataBase.php';
 
 class Modelobase {
     
-    private $db;
+    public $db;
     
     public function __construct() {
         $this->db = DataBase::Conectar();
     }
     
-    public function consegirTodo() {
-        var_dump($this->db);
-        return "Sacar todos los usuarios";
+    public function consegirTodo($table) {
+       $query = $this->db->query("SELECT * FROM $table ORDER BY Id DESC");
+       return $query;
     }
 
 }
