@@ -35,7 +35,9 @@ class Nota extends Modelobase{
 
         
     public function Guardar() {
-        $sql = "INSERT INTO notas(Usuario_Id, Titulo, Descripcion, Fecha) VALUES({$this->Usuario_Id}, '{$this->Titulo}', '{$this->Descripcion}',CURDATE());";
+        $sql = "INSERT INTO notas(Usuario_Id, Titulo, Descripcion, Fecha)"
+                . " VALUES({$this->Usuario_Id}, '{$this->Titulo}', "
+                . "'{$this->Descripcion}',CURDATE());";
         
         $guardado = $this->db->query($sql);
         return $guardado;
