@@ -15,7 +15,7 @@ class NotaController{
         require_once 'Models/nota.php';
         $nota = new Nota();
         $nota->setUsuario_Id(1);
-        $nota->setTitulo("Nay");
+        $nota->setTitulo("mi amor");
         $nota->setDescripcion("Hola mi amor.");        
         $nota->Guardar();        
         
