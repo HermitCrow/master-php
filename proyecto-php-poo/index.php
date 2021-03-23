@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Autoload.php';
+require_once 'autoload.php';
 
 
 if (isset($_GET['controller'])) {
@@ -12,6 +12,7 @@ if (isset($_GET['controller'])) {
 
 if (class_exists($ControllerName)) {
     $controller = new $ControllerName();
+    
     if (isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
         $action = $_GET['action'];
         $controller->$action();
@@ -21,3 +22,5 @@ if (class_exists($ControllerName)) {
 } else {
     echo "La pagina que buscas no existe.";
 }//Fin If else
+
+
