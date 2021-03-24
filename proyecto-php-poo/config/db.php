@@ -5,9 +5,8 @@
  */
 
 class Database{
-    public static function Connect() {
-        $ConnectionString = array('localhost','sa','123456','tienda_master');
-        $DataContext = new mysqli($ConnectionString);
+    public static function Connect() {        
+        $DataContext = new mysqli('localhost','sa','123456','tienda_master');
         $DataContext->query("SET NAMES 'utf8'");
         return $DataContext;
         
