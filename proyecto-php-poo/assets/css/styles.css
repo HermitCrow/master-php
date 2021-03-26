@@ -239,8 +239,7 @@ button,
 /*Productos*/
 
 .product{
-    width: 30%;
-    //border-right: 1px solid #ccc;
+    width: 30%;    
     float: left;
     margin-left: 10px;
     margin-right: 10px;
