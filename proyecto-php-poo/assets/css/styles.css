@@ -22,6 +22,27 @@ a:hover{
     color: #555555;
 }
 
+.alert_green {
+    color: green !important;
+}
+.alert_red {
+    color: red !important;
+
+}
+
+table{
+    text-align: center;
+    width: 100%;
+    border: 1px solid #555;
+}
+
+
+
+td{
+    border-top: 1px solid #ccc;
+    padding: 4px;
+}
+
 /*CONTAINER*/
 #container{
     width: 80%;
@@ -65,6 +86,10 @@ a:hover{
 #logo a:hover{
     text-shadow: 0px 2px 1px #222222, 0px 0px 5px #01B1EA;
 }
+.Clearfix {
+  clear: both;
+  float: none;
+}
 
 /*MENU*/
 
@@ -73,7 +98,8 @@ a:hover{
     background: #222;
     color: white;
     height: 55px;
-    border-bottom: 4px solid #01B1EA;    
+    border-bottom: 4px solid #01B1EA; 
+    overflow: hidden;
 }
 
 #menu ul{
@@ -86,6 +112,34 @@ a:hover{
     line-height: 55px;
     float: left;
     border-right: 1px solid #363636;
+}
+dl {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+dt,
+dd {
+  line-height: 1.42857143;
+}
+dt {
+  font-weight: 700;
+}
+dd {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 180px;
+  }
 }
 
 #menu a{
@@ -113,11 +167,11 @@ a:hover{
 
 /*BARRA LATERAL*/
 #lateral{
-     width: 22%;
-     min-height: 500px;
-     float: left;
-     margin-top: 20px;
-     margin-left: 10px;
+    width: 22%;
+    min-height: 500px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 #lateral .block_aside{
@@ -146,19 +200,22 @@ a:hover{
 }
 
 #lateral ul li{
-        list-style: square;
-        margin-left: 20px;
-        margin-top: 5px;   
-        margin-bottom: 5px;        
-    }
+    list-style: square;
+    margin-left: 20px;
+    margin-top: 5px;   
+    margin-bottom: 5px;        
+}
 
 /*FORMS*/
-
+.forms_conteiner{
+    width: 75%;
+}
 label,
 input[type="text"],
 input[type="password"],
 input[type="email"],
-select{
+input[type="number"],
+select,textarea{
     display: block;
     width: 95%;
     margin-top: 2px;
@@ -169,13 +226,14 @@ select{
 input[type="text"],
 input[type="password"],
 input[type="email"],
-select{
-     border: 1px solid #C9C9C9;
-     box-shadow: 0px 0px 2px #ccc inset;
-     background: white;
-     padding: 2px;
-     color: gray;
-     transition: 300ms;
+input[type="number"],
+select,textarea{
+    border: 1px solid #C9C9C9;
+    box-shadow: 0px 0px 2px #ccc inset;
+    background: white;
+    padding: 2px;
+    color: gray;
+    transition: 300ms;
 }
 
 input[type="text"]:focus,
@@ -191,7 +249,7 @@ button,
 .button{
     display: block;
     border-radius: 2px;
-    width: auto;
+    width: 61px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -211,14 +269,52 @@ button,
 .button{
     margin: 5px;
     background: #33AE3D;
-    color: white !important;
+    color: #fff !important;
     text-decoration: none;
-    
-    
+    border-color: #33AE3D;
+
+
 }
+.button-red{    
+    background: #d9534f !important;
+    width: 55px !important;
+    border-color: #d43f3a;
+}
+
+.button-info{    
+    background: #5bc0de !important;
+    width: 55px !important;
+    border-color: #46b8da;
+}
+
+.button-warnin{    
+    background: #f0ad4e !important;
+    width: 55px !important;
+    border-color: #eea236;
+}
+
+.button-smail{
+    width: 39px;
+    text-align: center; 
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;    
+}
+.form-button{
+    display: block;
+    width: 446px;
+   
+}
+.form-button a{
+    margin: 353px;
+    margin-top: -27px;
+}
+
 /*CENTRAL*/
 #central{
-    width: 72%;
+    width: 70%;
     min-height: 500px;
     float: right;
     border-left: 1px solid #ccc;
@@ -258,6 +354,11 @@ button,
     font-weight: bold;
     color: #555;
     margin-bottom: 10px;
+}
+.product a{
+margin: 50px;
+margin-top: auto;
+margin-bottom: auto;
 }
 /*FOOTER*/
 

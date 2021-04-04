@@ -1,4 +1,6 @@
 <?php
+
+
 function autoload($className){
     require_once 'Controllers/'.$className.'.php';
 }

@@ -5,7 +5,7 @@
  * $ServerName = "PGRREDNA150249";
  * $ServerName = "LAPTOP-J533FSR0";
   */
-$ServerName = "PGRREDNA150249";
+$ServerName = "LAPTOP-J533FSR0";
 /*$DataBase = "Blog";
 $User = "sa";
 $PassWord = "123456";*/

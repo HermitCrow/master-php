@@ -1,8 +1,8 @@
 <h1>Registrarse</h1>
 <?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
-    <strong>Registro completado correctamente</strong>
+<strong class="alert_green">Registro completado correctamente</strong>
 <?php elseif(isset($_SESSION['register']) && $_SESSION['register'] == 'failed') : ?>
-    <strong>Registro Fallido, Introduce bien los </strong>
+    <strong class="alert_red">Registro Fallido, Introduce bien los Datos</strong>
 <?php endif; ?>
     <?php Utils::deleteSession('register');?>
 <div>
@@ -15,7 +15,7 @@
         <input type="email" name="email" required/><!-- Email -->
         <label for="password">Password</label>
         <input type="password" name="password" required/><!-- Password -->
-        <input type="submit" value="Registrar" />
+        <input type="submit" value="Registrar" name="sibmit"/>
 
     </form>
 </div>
