@@ -1,15 +1,27 @@
 <?php
 
 require_once 'Models/producto.php';
+
 class productoController {
 
     public function index() {
         $AllProductos = new Producto();
-        $productos = $AllProductos->getRandom(6);        
-       
+        $productos = $AllProductos->getRandom(6);
+
         require_once 'Views/producto/destacados.php';
     }
-
+    public function listarOn() {
+        if(isset($_GET['id'])){
+            $id = isset($_GET['id']) ? trim($_GET['id']) : false;
+            $productos = new Producto();
+            $productos->setId($id);
+            $producto = $productos->getOne();
+            var_dump($producto);
+            die();
+        } else {
+            header("Location:".base_url."producto/error");
+        }
+    }
     public function gestion() {
         Utils::isAdmin();
 
@@ -17,9 +29,13 @@ class productoController {
         $productos = $ProductosObject->getAll();
 
         if (!$productos) {
-            $_SESSION['crear'] = 'failed';
+            $_SESSION['crear'] = 'failed'; //mensage que notifica que la peticion no se completo
         } else {
-            $_SESSION['Producto'] = 'Complete';
+            if ($productos->num_rows == 0) {
+                $_SESSION['Producto'] = 'failed'; //mensage que notifica que no hay productos registrados
+            } else {
+                $_SESSION['Producto'] = 'Complete'; //mensage que notifica se ha registrado el productos correctamente
+            }
         }
 
         require_once 'Views/producto/gestion.php';
@@ -56,8 +72,8 @@ class productoController {
                 $archivo = $_FILES['imagen'];
                 $tipo = $archivo['type'];
                 $nomTemporal = $archivo['tmp_name'];
-                $ImageNombre = Utils::RandoName($tipo);
-                $EditName = Utils::EditName($ImageNombre);
+                $ImageNombre = Utils::RandoName($tipo); //Generando un nombre rando para la imagen
+                $EditName = Utils::EditName($ImageNombre); //Quitando la extencion del nombre de la imagen 
                 if ($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png" || $tipo == "image/gif") {
                     if (!is_dir('Uploads/Imagen/' . $EditName)) {
                         mkdir('Uploads/Imagen/' . $EditName, 0777, true);
@@ -174,26 +190,25 @@ class productoController {
                 //Manejado el archivo
                 $archivo = $_FILES['imagen'];
                 $tipo = $archivo['type'];
-                $nomTemporal = $archivo['tmp_name'];                
-                $Preoductos = $producto->getAll();
-                if ($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png" || $tipo == "image/gif") {
+                $nomTemporal = $archivo['tmp_name'];
+                $Preoductos = $producto->getAll();                
+                if ($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png" || $tipo == "image/gif" || $tipo == "") {
                     $ImageNombre = Utils::RandoName($tipo); //get nombre rando
-                    
+
                     while ($prop = $Preoductos->fetch_object()) {
                         if ($prop->Id == $Id) {
-                            
-                             if(empty($prop->Imagen)){
-                                $ImageName =  $ImageNombre;
+
+                            if (empty($prop->Imagen)) {
+                                $ImageName = $ImageNombre;
                             } else {
                                 $ImageName = $prop->Imagen;
                             }
-                            
+
                             $EditName = Utils::EditName($ImageName);
                             if (!is_dir('Uploads/Imagen/' . $EditName)) {
                                 mkdir('Uploads/Imagen/' . $EditName, 0777, true);
                             }
-                           
-                            
+
                             //Guardando en la Base de datos
 
                             $producto->setId($Id);
@@ -204,8 +219,8 @@ class productoController {
                             $producto->setCategoria_Id($Categoria_Id);
                             $producto->setOferta($Oferta);
                             $producto->setFecha($Fecha);
-                            
-                            
+
+
                             $producto->setImagen($ImageName);
                             $result = $producto->update();
 

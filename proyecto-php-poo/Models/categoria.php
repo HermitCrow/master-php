@@ -52,6 +52,17 @@ class Categoria {
 
         return $resultado;
     }
+    public function getUnoByIdyToDatabase(): object {
+        $query = "SELECT * FROM categorias WHERE Id={$this->getId()} ;";
+
+        $queryResult = $this->db->query($query);
+
+        if (is_object($queryResult)) {
+            $resultado = $queryResult;
+        }
+
+        return $resultado;
+    }
 
     public function save(): bool {
         return $this->saveToDatabase();
@@ -74,6 +85,16 @@ class Categoria {
         }
 
         return $Result;
+    }
+    
+    public function getRandom(int $limit) : object{
+        $result = false;
+        $productos = $this->db->query("SELECT * FROM productos WHERE categoria_id={$this->getId()} ORDER BY RAND() LIMIT $limit;");
+        if($productos){
+            $result = $productos;
+        }
+        
+        return $result;
     }
 
     public function update(): bool {

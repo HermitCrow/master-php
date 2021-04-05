@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="<?= base_url ?>">Inicio</a></li>
                     <?php while ($categoria = $Categorias->fetch_object()) : ?>                    
-                        <li><a href="#"><?= $categoria->Nombre; ?></a></li>
+                        <li><a href="<?=base_url?>categoria/listarPorCategorias&id=<?=$categoria->Id;?>"><?= $categoria->Nombre; ?></a></li>
                     <?php endwhile; ?>
                 </ul>
             </nav> 

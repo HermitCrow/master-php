@@ -6,7 +6,7 @@
     <strong class="alert_red">El proceso no se ha completado correctamente.</strong>
 <?php endif; ?>  
 
-    <?php Utils::deleteSession('crear'); ?>
+<?php Utils::deleteSession('crear'); ?>
 
 <table>
     <tr>
@@ -25,11 +25,11 @@
         </th>            
     </tr>
     <?php if (isset($_SESSION['Producto']) && $_SESSION['Producto'] == 'Complete'): ?>
-    <?php $p = 1;?>
+        <?php $p = 1; ?>
         <?php while ($producto = $productos->fetch_object()) : ?>
             <tr>   
                 <td>
-                    <?= $p. "</br>"; ?>
+                    <?= $p . "</br>"; ?>
                 </td><!-- Fin Id -->
                 <td>
                     <?= $producto->Nombre . "</br>"; ?>
@@ -44,8 +44,10 @@
                 <td><a href="<?= base_url . "producto/editar" . "&id=$producto->Id" ?>" class="button button-smail button-warnin">Editar</a></td>
                 <td><a href="<?= base_url . "producto/eliminar" . "&id=$producto->Id" ?>" class="button  button-smail button-red" >Eliminar</a></td>
             </tr>
-            <?php $p++;?>
-        <?php endwhile; ?> 
+            <?php $p++; ?>
+        <?php endwhile; ?>
+    <?php else: ?>
+        <strong class="alert_red">No hay productos registrados.</strong>
     <?php endif; ?>    
 </table>
 

@@ -267,12 +267,22 @@ button,
     margin-top: 10px;
 }
 .button{
-    margin: 5px;
+    margin: 5px;    
     background: #33AE3D;
     color: #fff !important;
     text-decoration: none;
     border-color: #33AE3D;
+    text-align: center;
 
+}
+.button-ver{
+    margin: 74px;
+    margin-bottom: auto;
+    margin-top: auto;
+    background: #33AE3D;
+    color: #fff !important;
+    text-decoration: none;
+    border-color: #33AE3D;
 
 }
 .button-red{    
@@ -338,12 +348,12 @@ button,
     width: 30%;    
     float: left;
     margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
+    margin-right: 10px;    
+    margin-bottom: 30px;
     text-align: center;
 }
 .product img{
-    width: 100px;
+    height: 170px;
     margin-bottom: 10px;
 }
 .product h2{
@@ -356,10 +366,13 @@ button,
     margin-bottom: 10px;
 }
 .product a{
-margin: 50px;
-margin-top: auto;
-margin-bottom: auto;
+color: black;
+text-decoration: none;
 }
+.product a:hover{
+    color: #555;
+}
+
 /*FOOTER*/
 
 #footer{

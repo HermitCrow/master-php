@@ -107,9 +107,27 @@ class Producto {
         
         return $result;
     }
+    
+    public function getOne(): object {
+        //$result = false;
+        $query = "SELECT * FROM productos WHERE Id={$this->getId()};";
+        $queryResult = $this->db->query($query);
+        
+        if($queryResult){
+            $result = $queryResult->fetch_object();
+        }
+        
+        return $result;
+    }
+    
     public function getRandom(int $limit) : object{
+        $result = false;
         $productos = $this->db->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limit;");
-        return $productos;
+        if($productos){
+            $result = $productos;
+        }
+        
+        return $result;
     }
      public function save() : bool{
        
