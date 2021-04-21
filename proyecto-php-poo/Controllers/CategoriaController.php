@@ -12,8 +12,7 @@ class categoriaController {
         require_once 'Views/categoria/index.php';
     }
 
-    public function listarPorCategorias() {
-        Utils::isAdmin();
+    public function listarPorCategorias() {        
         if (isset($_GET['id'])) {
             $id = isset($_GET['id']) ? trim($_GET['id']) : false;
             $categoria = new Categoria();

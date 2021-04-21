@@ -50,11 +50,13 @@
                 <?php while (($image = readdir($gestor)) !== False)://Recorriendo el directorio   ?>
 
                     <?php if ($image != '.' && $image != '..')://Filtrando los datos residuales ?> 
+
                         <tr>
                             <td>
                                 <img src="<?= base_url ?>Uploads/Imagen/<?= $getName ?>/<?= $image ?>" style="width:250px;height:auto;">
                             </td>
-                        </tr>          
+                        </tr> 
+
                     <?php endif; ?>
                 <?php endwhile; ?>
 

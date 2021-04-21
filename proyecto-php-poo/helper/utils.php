@@ -50,5 +50,23 @@ class Utils {
          
         return $EditName;
     }
+    
+     public static function statCarrito() {        
+        
+          $stats = array(
+              'count' =>0,
+              'total' => 0
+          );
+          
+          if(isset($_SESSION['carrito'])){
+              $stats['count'] = count($_SESSION['carrito']);
+              //var_dump($_SESSION['carrito']);
+              foreach ($_SESSION['carrito'] as $producto){
+                  $stats['total'] += $producto['producto']->Precio * $producto['unidad'];
+              }
+          }
+         
+        return $stats;
+    }
    
 }

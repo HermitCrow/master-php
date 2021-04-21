@@ -15,9 +15,9 @@ class productoController {
             $id = isset($_GET['id']) ? trim($_GET['id']) : false;
             $productos = new Producto();
             $productos->setId($id);
-            $producto = $productos->getOne();
-            var_dump($producto);
-            die();
+            $prod = $productos->getOne();            
+            require_once 'Views/producto/ver.php';
+            
         } else {
             header("Location:".base_url."producto/error");
         }
@@ -114,7 +114,6 @@ class productoController {
 
     public function detalle() {
         Utils::isAdmin();
-
         if (isset($_GET['id'])) {
             $id = trim($_GET['id']);
             $producto = new Producto();
