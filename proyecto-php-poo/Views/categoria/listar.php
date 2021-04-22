@@ -10,7 +10,7 @@
             <h2><?= $prod->Nombre ?></h2>
             <p>RD$ <?= $prod->Precio ?></p>
             </a>
-            <a href="#" class="button button-ver">Comprar</a>
+            <a href="<?= base_url ?>carrito/add&id=<?= $prod->Id ?>" class="button button-ver">Comprar</a>
         </div>
     <?php endwhile; ?>
 <?php endif; ?>

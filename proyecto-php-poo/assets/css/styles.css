@@ -423,3 +423,11 @@ text-decoration: none;
     border-top:  2px solid #01B1EA;
 }
 
+/*Carrito*/
+
+.button-pagar{
+    display: block;  
+    margin-right: 36px;
+    margin-top: 14px;
+    float: right !important;
+}

@@ -89,7 +89,7 @@ class Usuario {
         return $result;
     }
 
-    public function login() : object{
+    public function login() {
         $result = false;
         //Consulta para conprobar las credenciales del usuario
         $query = "SELECT * FROM usuarios WHERE Email = '{$this->getEmail()}'";

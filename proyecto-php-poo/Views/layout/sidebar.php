@@ -20,6 +20,10 @@
                     <input type="password" name="password" required/>
                     <input type="submit" value="Entrar" name="loginIn"/>
                 </form> 
+                <?php if (isset($_SESSION['error_login'])) : ?><br/>
+                <strong class="alert_red"><?=$_SESSION['error_login']?></strong>
+                <?php Utils::deleteSession('error_login'); ?>
+                <?php endif; ?>
             <?php endif; ?>
             <?php if (isset($_SESSION['login'])) : ?>
                 <h3>Biemvenido | <?= $_SESSION['login']->Nombre; ?> <?= $_SESSION['login']->Apellidos; ?></h3>

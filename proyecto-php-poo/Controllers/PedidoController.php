@@ -1,7 +1,7 @@
 <?php
 
 class pedidoController{
-    public function index(){
-        echo "Controlador Pedidos, Accion index";
+    public function hacer(){
+        require_once 'Views/pedido/hacer.php';
     }
 }

@@ -41,6 +41,7 @@
                 </tr>
     </tbody>            
     </table>
+<a href="<?=base_url?>pedido/hacer" class="button button-pagar">Pagar</a>
 <?php else : ?>
     <strong>No hay articulos registrado.</strong>
 <?php endif; ?>
