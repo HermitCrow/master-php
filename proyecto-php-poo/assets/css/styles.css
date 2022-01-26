@@ -431,3 +431,15 @@ text-decoration: none;
     margin-top: 14px;
     float: right !important;
 }
+.updown-unidades{
+    width: 61%;
+    margin: 0px auto;
+}
+.updown-unidades .button{
+    display: block;
+    width: 17px;
+    float: left;
+    padding: 2px;
+    margin: 4px;
+   
+}

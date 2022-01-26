@@ -23,8 +23,7 @@
                     <li><a href="#">Categoria</a></li>
                     <li><a href="#">Categoria 2</a></li>
                 </ul>
-            </nav> 
-
+            </nav>       
             <div id="content">
                 <!-- BARRA LATERAL -->
                 <aside id="lateral">
@@ -48,7 +47,7 @@
                 <!-- CONTENIDO CENTRAL -->
                 <div id="central">
                     <h1>Productos Destacados</h1>
-
+                    
                     <div class="product">
                         <img src="assets/img/camiseta.png"/>
                         <h2>Camiseta Azul</h2>
@@ -88,3 +87,4 @@
         </div>
     </body>
 </html>
+

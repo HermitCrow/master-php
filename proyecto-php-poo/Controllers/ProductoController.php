@@ -2,7 +2,7 @@
 
 require_once 'Models/producto.php';
 
-class productoController {
+class ProductoController {
 
     public function index() {
         $AllProductos = new Producto();

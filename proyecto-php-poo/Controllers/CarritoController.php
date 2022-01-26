@@ -5,7 +5,7 @@ require_once 'Models/producto.php';
 class carritoController {
 
     public function index() {
-        $carrito = isset($_SESSION['carrito']) ? $_SESSION['carrito'] : null;        
+        $carrito = isset($_SESSION['carrito']) ? $_SESSION['carrito'] : null;
         require_once 'Views/carrito/ver.php';
     }
 
@@ -13,13 +13,7 @@ class carritoController {
         if (isset($_GET['id'])) {
             $producto_id = trim($_GET['id']);
             if (isset($_SESSION['carrito'])) {
-                $counter = 0;
-                foreach ($_SESSION['carrito'] as $indice => $dato) {
-                    if ($producto_id == $dato['producto']->Id) {
-                        $_SESSION['carrito'][$indice]['unidad']++;
-                        $counter++;
-                    }
-                }
+                $counter = Utils::addCarritoId($producto_id);
             }
             if (!isset($counter) || $counter == 0) {
 
@@ -29,12 +23,7 @@ class carritoController {
                 $producto = $productos->getOne();
 
                 //Añadir al carrito
-                if (is_object($producto)) {
-                    $_SESSION['carrito'][] = array(                        
-                        "unidad" => 1,
-                        "producto" => $producto
-                    );
-                }
+                Utils::addProductoCarrito($producto);
             }
             header("Location:" . base_url . "carrito/index");
         } else {
@@ -42,13 +31,39 @@ class carritoController {
         }
     }
 
-    public function remuve() {
-        
+    public function up() {
+        if (isset($_GET['index'])) {
+            $index = $_GET['index'];
+            if (isset($_SESSION['carrito'])) {
+                Utils::addUp($index);
+            }
+            header("Location:" . base_url . "carrito/index");
+        }
+    }
+
+    public function down() {
+        if (isset($_GET['index'])) {
+            $index = $_GET['index'];
+            if (isset($_SESSION['carrito'])) {
+                Utils::addDown($index);
+                
+            }
+            header("Location:" . base_url . "carrito/index");
+        }
+    }
+
+    public function remove() {
+        if (isset($_GET['index'])) {
+            $index = $_GET['index'];
+            Utils::removeCarrito($index);
+        } else {
+            header("Location:" . base_url . "carrito/error");
+        }
     }
 
     public function delete() {
         Utils::deleteSession('carrito');
-        header("Location:" . base_url . "carrito/index");
+        header("Location:" . base_url . "producto/index");
     }
 
 }

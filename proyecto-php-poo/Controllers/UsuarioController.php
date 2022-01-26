@@ -112,14 +112,21 @@ class usuarioController {
     public function LoginOut() {
 
         //Cerrar Seccion usuario
-        if (isset($_SESSION['login'])) {
+        if (isset($_SESSION['login']) || isset($_SESSION['admin'])) {
+            Utils::deleteSession('carrito');
             Utils::deleteSession('login');
+            Utils::deleteSession('pedido');
+            Utils::deleteSession('admin');
+            Utils::deleteSession('error_login');
         }
         
         //Cerrar Seccion administrador
-        if(isset($_SESSION['admin'])){
-            Utils::deleteSession('admin');
-        }
+//        if(isset($_SESSION['admin'])){
+//            Utils::deleteSession('carrito');
+//            Utils::deleteSession('admin');
+//            Utils::deleteSession('pedido');
+//        }
+        
         
         header("Location:" . base_url);
     }
