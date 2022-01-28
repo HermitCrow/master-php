@@ -15,6 +15,7 @@ class Image extends Model
 
     // Realcion one to many con los comentarios
 
+   
     
     public function comments(): HasMany
     {
