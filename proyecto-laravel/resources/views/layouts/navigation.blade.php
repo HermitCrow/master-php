@@ -13,8 +13,15 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('LaraFoto') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Inicio') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Subir Imagen') }}
+                    </x-nav-link>
+                   
                 </div>
             </div>
 
@@ -23,7 +30,8 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>{{ Auth::user()->name." ".Auth::user()->surname }}</div>
+                            
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -35,6 +43,25 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
+                        
+                        <form method="Get" action="{{ route('dashboard') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('dashboard')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('My Perfil') }}
+                            </x-dropdown-link>
+                        </form>
+                        <form method="Get" action="{{ route('config.index') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('config.index')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Configuration') }}
+                            </x-dropdown-link>
+                        </form>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -71,7 +98,7 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name." ".Auth::user()->surname}}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 

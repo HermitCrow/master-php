@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Models\Image;
 Route::get('/', function () {
     // $images = Image::all();
     // foreach($images as $image){
+        
     //     echo $image->image_path."<br>";
     //     echo $image->user->name."<br>";
     //     echo $image->description."<br>";
@@ -28,8 +30,9 @@ Route::get('/', function () {
         
     // die();
     return view('welcome');
-});
-
+})->name('home');
+Route::get('/config', [UserController::class, 'config'])->name('config.index');
+Route::post('/user/update', [UserController::class, 'update'])->name('config.update');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
