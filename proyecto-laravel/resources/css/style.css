@@ -1,0 +1,9 @@
+.hidden .block  .container-avatar{
+    width: 55px;
+    height: 55px;
+    border-radius: 900px;
+    overflow: hidden;
+}
+.hidden .block .container-avatar img{
+    height: 100%;
+}

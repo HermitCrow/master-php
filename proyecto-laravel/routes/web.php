@@ -31,8 +31,9 @@ Route::get('/', function () {
     // die();
     return view('welcome');
 })->name('home');
-Route::get('/config', [UserController::class, 'config'])->name('config.index');
-Route::post('/user/update', [UserController::class, 'update'])->name('config.update');
+Route::get('/config', [UserController::class, 'config'])->middleware(['auth'])->name('config.index');
+Route::post('/user/update', [UserController::class, 'update'])->middleware(['auth'])->name('config.update');
+Route::get('/config/avatar/{filename?}', [UserController::class, 'getImage'])->middleware(['auth'])->name('config.avatar');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
