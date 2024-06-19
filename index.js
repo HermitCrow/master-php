@@ -51,4 +51,4 @@ const tipoDatoObjeto = {//Objetos con tres Propiedades.
     PropCondicional: false,
 }
 
-console.log(tipoDatoObjeto)
+console.log(tipoDatoObjeto.PropNumero)
